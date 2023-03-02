@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import EditTask from '../modals/EditTask';
 import  '../../src/App.css'
 
-const Card = ({taskObj, loggedIn, handleNewPost, deleteTask}) => {
+const Card = ({taskObj, loggedIn, handleNewPost, deleteTask, handleView}) => {
     const [modal, setModal] = useState(false);
+
    
 
     const colors = [
@@ -37,9 +38,17 @@ const Card = ({taskObj, loggedIn, handleNewPost, deleteTask}) => {
         fetch(`http://localhost:9293/users/${loggedIn.id}/tasks/${taskObj.id}`, {
             method: 'DELETE',
         })
-        .then((res) => res.json())
+        .then((res) => {
+            if (res.ok) {
+                return res.json();
+            } else {
+                throw new Error('Failed to delete task');
+            }
+        })
         .then(() => deleteTask(taskObj.id))
+        .catch((error) => console.error(error));
     }
+    
 
 
 
@@ -54,6 +63,7 @@ const Card = ({taskObj, loggedIn, handleNewPost, deleteTask}) => {
         <div style={{"position": "absolute", "right" : "20px", "bottom" : "20px"}}>
             <i class = "far fa-edit mr-3" style={{"color" : colors[19%5].primaryColor, "cursor" : "pointer"}} onClick={()=> setModal(true)}></i>
             <i class="fas fa-trash-alt" onClick={handleDelete} style = {{"color" : colors[20%5].primaryColor, "cursor" : "pointer"}} ></i>
+            <i className="fas fa-eye" onClick={handleView} style={{cursor: 'pointer'}}></i>
         </div>
 </div>
 <EditTask modal ={modal} loggedIn={loggedIn} handleNewPost={handleNewPost} toggle ={toggle} taskObj ={taskObj}/>

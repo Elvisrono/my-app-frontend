@@ -1,13 +1,13 @@
 .header{
     height: 200px;
     width: 100%;
-    background-color : #bec5d2;
+    background-color : #91e478;
     padding-top: 50px;
   }
   .col-sm-4{
     display: flex;
 	  align-items: center;
-	  background-color: rgb(233, 233, 233);
+	  background-color: rgb(68, 226, 205);
 	  border-radius: 10px;
 	  padding: 5px;
 	  margin-bottom: 1.5em;
@@ -39,6 +39,7 @@
     display : flex;
     flex-direction: column;
     position: relative;
+    
   }
   
   .card-header{
@@ -48,6 +49,7 @@
     height: 30px;
     padding: 1px 1px !important;
     text-align: center;
+    
   }
   .task-container{
     height: 600px;

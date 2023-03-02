@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-const CreateTask = ({modal, toggle, loggedIn, handleNewPost}) => {
+const CreateTask = ({modal, toggle, loggedIn, handleNewPost, handleView}) => {
     
 
     const [form, setForm] = useState(
         {
             category: "",
-            todos: ""
+            todos: "",
+            dueDate: ""
+            
         }
     )
     
@@ -24,15 +26,25 @@ const CreateTask = ({modal, toggle, loggedIn, handleNewPost}) => {
             },
             body: JSON.stringify(form)
         })
-            handleNewPost()
-            toggle()
+        .then(response => response.json())
+        .then(data => {
+            handleNewPost();
+            toggle();
+            setForm({
+                category: "",
+                todos: "",
+                dueDate: ""
+              });
+        })
             
     }
 
  
     return (
+        
         <Modal isOpen={modal} toggle={toggle}>
-            <ModalHeader toggle={toggle}>Create Task</ModalHeader>
+            <ModalHeader toggle={toggle}>Create Task - {form.dueDate}</ModalHeader>
+
             <ModalBody>
             
                     <form>
@@ -53,6 +65,7 @@ const CreateTask = ({modal, toggle, loggedIn, handleNewPost}) => {
             <ModalFooter>
             <Button color="primary" onClick={handleSave}>Create</Button>{' '}
             <Button color="secondary" onClick={toggle}>Cancel</Button>
+             <Button color="info" onClick={handleView}>View</Button>
             </ModalFooter>
       </Modal>
     );

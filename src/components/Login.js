@@ -50,9 +50,9 @@ function Login({ setLoggedIn }) {
         <div class='login-box'>
             <h2><b>Login</b></h2>
             <br></br>
-            <h3><b>Welcome to Notes App</b></h3>
+            <h3><b>Welcome to Task Manager</b></h3>
             <br></br>
-            <h4> <i>Login to save all Notes and access them from anywhere </i></h4>
+            <h4> <i>Login to create your tasks </i></h4>
             <br></br>
             <form className = 'formWrapper' onSubmit = {handleSubmit} autoComplete="off">
                 <div class = "user-box">

@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import CreateTask from '../modals/CreateTask';
 import { useState } from 'react';
 import Card from './Card';
-import Search from './Search';
+import Search from './TaskList';
 import "../components/signup.css";
 
 const ToDoList =({tasks, loggedIn, deleteTask, handleNewPost}) => {
@@ -21,9 +21,9 @@ const ToDoList =({tasks, loggedIn, deleteTask, handleNewPost}) => {
     <>
     
      <div className='header text-center'>
-        <h3>Task Manager</h3>
+        <h1>TASK MANAGER</h1>
         <button className="btn btn-primary mt-2" onClick={()=> setModal(true)}>Create Task</button>
-        <div class = "logout-form">
+        <div className = "logout-form">
         <a id='logout' href='/'>LogOut</a>
         </div>
         
