@@ -3,3 +3,9 @@
     display: flex;
 
 }
+.task-container{
+    background-image:url('./../../assets/pexels-andreea-ch-1166644.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 3px -100px;
+}
