@@ -3,15 +3,36 @@ import React, { useEffect } from 'react';
 import CreateTask from '../modals/CreateTask';
 import { useState } from 'react';
 import Card from './Card';
-import Search from './TaskList';
+import Search from './Search';
 import "../components/signup.css";
+import "../components/todolist.css"
 
 const ToDoList =({tasks, loggedIn, deleteTask, handleNewPost}) => {
     const [modal, setModal] = useState(false);
+    const [search, setSearch] = useState([]);
+
 
     const toggle =()=> {
         setModal(!modal);
     }
+
+    async function searchFunction(searchTerms){
+        fetch("http://localhost:9293/users/${loggedIn.id}/tasks")
+          .then(res => res.json())
+          .then(data => {
+            //let newData = [];
+            const filtered = data.filter(item => {
+              return item.description.includes(searchTerms)
+              
+            })
+            setSearch(filtered)
+            console.log(filtered)
+          })
+          .catch(error => {
+            console.log(error)
+          })
+    
+      }
 
     
 
@@ -22,6 +43,8 @@ const ToDoList =({tasks, loggedIn, deleteTask, handleNewPost}) => {
     
      <div className='header text-center'>
         <h1>TASK MANAGER</h1>
+        <form></form>
+        <Search searchFunction={searchFunction} />
         <button className="btn btn-primary mt-2" onClick={()=> setModal(true)}>Create Task</button>
         <div className = "logout-form">
         <a id='logout' href='/'>LogOut</a>
