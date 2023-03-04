@@ -48,7 +48,7 @@ const CreateTask = ({ modal, toggle, loggedIn, handleNewPost }) => {
 
   return (
     <Modal isOpen={modal} toggle={toggle}>
-      <ModalHeader toggle={toggle}>Create Task - {form.dueDate}</ModalHeader>
+      <ModalHeader toggle={toggle}> Create Task - Due Date: {form.dueDate} | status: {form.completed ? "Yes" : "No"}</ModalHeader>
       <ModalBody>
         <form>
           <div className="form-group">
@@ -86,7 +86,7 @@ const CreateTask = ({ modal, toggle, loggedIn, handleNewPost }) => {
             ></input>
           </div>
           <div className="form-group">
-            <label>Completed</label>
+            <label>Status</label>
             <select
               name="completed"
               className="form-control"

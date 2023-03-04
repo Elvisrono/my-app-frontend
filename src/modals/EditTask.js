@@ -3,7 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-const EditTask = ({ modal, loggedIn, handleNewPost, toggle, taskObj, handleView}) => {
+const EditTask = ({ modal, loggedIn, handleNewPost, toggle, taskObj, handleView, handleSave}) => {
     const [form, setForm] = useState({
       category: "",
       todos: "",
@@ -15,13 +15,23 @@ const EditTask = ({ modal, loggedIn, handleNewPost, toggle, taskObj, handleView}
         setForm({
           category: taskObj.category,
           todos: taskObj.todos,
-          dueDate: taskObj.dueDate
+          dueDate: taskObj.dueDate,
+          completed: taskObj.completed,
         });
       } else {
         const today = new Date().toISOString().slice(0, 10);
         setForm({ ...form, dueDate: today });
       }
     }, [taskObj]);
+    const handleInputChange = (event) => {
+      const { name, value } = event.target;
+      setForm({ ...form, [name]: value });
+    };
+  
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      handleSave(form);
+    };
   
     const handleUpdate = (e) => {
       fetch(
