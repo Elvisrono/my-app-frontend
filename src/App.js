@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import ToDoList from './components/ToDoList';
 import Signup from './components/Signup';
 import Login from './components/Login';
+import CreateTask from './modals/CreateTask';
 
 
 
@@ -41,6 +42,19 @@ function App() {
   return (
     <div className="App">
       <Routes>
+      <Route
+  path="/home"
+  element={
+    <ToDoList
+      tasks={tasks}
+      loggedIn={loggedIn}
+      deleteTask={deleteTask}
+      handleNewPost={handleNewPost}
+      CreateTask={CreateTask} // add this line
+    />
+  }
+/>
+
           <Route path='/home' element= {<ToDoList tasks={tasks} loggedIn={loggedIn} deleteTask={deleteTask} handleNewPost={handleNewPost}/>}/> 
           <Route path='/users/new' element = {<Signup addNewUser={addNewUser}/>}/>
           <Route path='/' element = { <Login setLoggedIn={setLoggedIn} />}/>

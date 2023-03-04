@@ -15,6 +15,14 @@ const ToDoList =({tasks, loggedIn, deleteTask, handleNewPost}) => {
     const toggle =()=> {
         setModal(!modal);
     }
+    {loggedIn.id && (
+      <CreateTask
+        modal={modal}
+        toggle={toggle}
+        loggedIn={loggedIn}
+        handleNewPost={handleNewPost}
+      />
+    )}
 
     async function searchFunction(searchTerms){
         fetch("http://localhost:9293/users/${loggedIn.id}/tasks")
