@@ -40,9 +40,9 @@
 
     npm start
 
--you can see the live link here 
+- you can see the live link here 
 
-    https://my-app-frontend-six.vercel.app/
+https://my-app-frontend-six.vercel.app/
 
 
 # Technology Used
@@ -50,9 +50,9 @@
 -React - which was used to make the page dynamic and interactive.
 
 
--Link to the backend repository
+# Link to the backend repository
 
-    https://github.com/kericho/task-manager-backend
+https://github.com/kericho/task-manager-backend
 
 
 
