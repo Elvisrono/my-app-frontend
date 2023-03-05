@@ -28,12 +28,18 @@
     background-color: white;
     text-decoration-color: orange;
   }
-  
+  .card-wrapper.mr-5{
+    height: 350px;
+    width: 300px;
+    background-color: cyan;
+  }
   .card-top{
     width: 100%;
     height: 2%;
   }
-  
+  .task-mt-3{
+    
+  }
   .task-holder{
     width: 100%;
     height: 98%;

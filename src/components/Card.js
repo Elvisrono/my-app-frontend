@@ -48,15 +48,15 @@ const Card = ({ taskObj, loggedIn, handleNewPost, deleteTask, handleView }) => {
   };
 
   return (
-    <div class="card-wrapper mr-5">
-      <div class="card-top" style={{ backgroundColor: colors[1 % 5].primaryColor }}></div>
-      <div class="task-holder">
+    <div className="card-wrapper mr-5">
+      <div className="card-top" style={{ backgroundColor: colors[1 % 5].primaryColor }}></div>
+      <div className="task-holder">
         <span class="card-header" style={{ backgroundColor: colors[4 % 5].secondaryColor, borderRadius: '10px' }}>
           {taskObj.category}
         </span>
-        <p className="mt-3">{taskObj.todos}</p>
-        <p>Due Date: {taskObj.dueDate}</p>
-        <p>Status: {taskObj.completed ? 'Completed' : 'Not Completed'}</p>
+        <div className="task-mt-3">{taskObj.todos}</div>
+        <p>Due Date: {taskObj.dueDate ? taskObj.dueDate : 'No due date'}</p>
+        <p1>Status: {taskObj.completed ? 'Completed' : 'Not Completed'} </p1>
         <div style={{ position: 'absolute', right: '20px', bottom: '20px' }}>
           <i
             class="far fa-edit mr-3"

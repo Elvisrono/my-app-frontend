@@ -66,12 +66,20 @@ const CreateTask = ({ modal, toggle, loggedIn, handleNewPost }) => {
           <div className="form-group">
             <label>Tasks</label>
             <textarea
-              rows="5"
-              className="form-control"
-              value={form.todos}
-              onChange={(e) => setForm({ ...form, todos: e.target.value })}
-              name="todos"
-            ></textarea>
+                 rows="5"
+                className="form-control"
+                value={form.todos}
+                onChange={(e) => setForm({ ...form, todos: e.target.value })}
+                name="todos"
+            >
+          {form.todos.split("\n").map((task, index) => (
+          <div key={index}>
+            <input type="checkbox" />
+              {task}
+          </div>
+  ))}
+</textarea>
+
           </div>
           <div className="form-group">
             <label>Due-Date</label>
