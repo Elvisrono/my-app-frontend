@@ -14,7 +14,7 @@ function Search({ searchFunction, loggedIn}) {
       try {
         const response = await fetch(`http://localhost:9293/users/${loggedIn.id}/tasks`);
         const data = await response.json();
-        const filteredData = data.filter((item) => item.description.includes(search));
+        const filteredData = data.filter((item) => item.category.includes(search));
         searchFunction(filteredData);
       } catch (error) {
         console.log(error);

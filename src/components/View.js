@@ -88,4 +88,4 @@ const CreateTask = ({modal, toggle, loggedIn, handleNewPost}) => {
     );
 };
 
-export default Create
+export default Create;
