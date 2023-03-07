@@ -33,7 +33,7 @@ const Card = ({ taskObj, loggedIn, handleNewPost, deleteTask, handleView }) => {
   };
 
   const handleDelete = () => {
-    fetch(`http://localhost:9293/users/${loggedIn.id}/tasks/${taskObj.id}`, {
+    fetch(`https://manger.onrender.com/users/${loggedIn.id}/tasks/${taskObj.id}`, {
       method: 'DELETE',
     })
       .then((res) => {

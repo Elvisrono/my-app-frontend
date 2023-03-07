@@ -30,7 +30,7 @@ function Signup({ addNewUser }) {
         if (formState.password !== passConfirmation.passwordConfirm) {
             alert('Passwords do not match! Please try again.')
         } else {
-            await fetch ('http://localhost:9293/users', {
+            await fetch ('https://manger.onrender.com/users', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

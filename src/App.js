@@ -20,7 +20,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch(`http://localhost:9293/users/${loggedIn.id}/tasks`)
+    fetch(`https://manger.onrender.com/users/${loggedIn.id}/tasks`)
     .then(r => r.json())
     .then( (tasksarr) => {
       console.log(tasksarr)

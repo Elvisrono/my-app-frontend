@@ -35,7 +35,7 @@ const EditTask = ({ modal, loggedIn, handleNewPost, toggle, taskObj, handleView,
   
     const handleUpdate = (e) => {
       fetch(
-        `http://localhost:9293/users/${loggedIn.id}/tasks/${taskObj.id}`,
+        `https://manger.onrender.com/users/${loggedIn.id}/tasks/${taskObj.id}`,
         {
           method: "PATCH",
           headers: {

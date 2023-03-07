@@ -12,7 +12,7 @@ function Search({ searchFunction, loggedIn}) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`http://localhost:9293/users/${loggedIn.id}/tasks`);
+        const response = await fetch(`https://manger.onrender.com/users/${loggedIn.id}/tasks`);
         const data = await response.json();
         const filteredData = data.filter((item) => item.category.includes(search));
         searchFunction(filteredData);

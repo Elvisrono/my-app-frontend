@@ -13,7 +13,7 @@ const CreateTask = ({modal, toggle, loggedIn, handleNewPost}) => {
 
     const handleSave = (e) => {
         e.preventDefault()
-        fetch(`http://localhost:9293/users/${loggedIn.id}/tasks`, {
+        fetch(`https://manger.onrender.com/users/${loggedIn.id}/tasks`, {
             method: 'POST',
             headers: {
                 'Content-type':'application/json'
@@ -35,7 +35,7 @@ const CreateTask = ({modal, toggle, loggedIn, handleNewPost}) => {
     const handleView = (e) => {
         e.preventDefault();
         // fetch the task details using an API call or any other method
-        fetch(`http://localhost:9293/users/${loggedIn.id}/tasks/${taskId}`)
+        fetch(`https://manger.onrender.com/users/${loggedIn.id}/tasks/${taskId}`)
             .then(response => response.json())
             .then(data => {
                 setViewTask(data);

@@ -24,7 +24,7 @@ function Login({ setLoggedIn }) {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        await fetch ('http://localhost:9293/users/login', {
+        await fetch ('https://manger.onrender.com/users/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
